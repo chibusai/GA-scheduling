@@ -1,61 +1,54 @@
 public class Lesson {
     private final int lessonId;
-    private String lessonName; // e.g. CBL1, LT2, Lab
-    private final int session;
-    private String subjectId;
+    private int subjectId;
     private int instructorId;
-    private String groupName;
+    private int groupId;
     private int timeslotId;
     private int locationId;
 
     public Lesson(int lessonId, int session, int instructorId) {
         this.lessonId = lessonId;
-        this.lessonName = lessonName;
-        this.session = session;
         this.subjectId = subjectId;
         this.instructorId = instructorId;
-        this.groupName = groupName;
+        this.groupId = groupId;
     }
 
-    public String getLessonName() {
-        return lessonName;
-    }
-
-    public int getSession() {
-        return session;
-    }
-
-    public String getSubjectId() {
-        return subjectId;
-    }
-
-    public int getInstructorId() {
-        return instructorId;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public int getLessonId() {
-        return lessonId;
+    public void addInstructor(int instructorId) {
+        this.instructorId = instructorId;
     }
 
     public void addTimeslot(int timeslotId) {
         this.timeslotId = timeslotId;
     }
 
-    public int getTimeslotId() {
-        return timeslotId;
-    }
-
     public void setLocationId(int locationId) {
         this.locationId = locationId;
     }
 
-    public void addInstructor(int instructorId) {
-        this.instructorId = instructorId;
+    public int getLessonId() {
+        return this.lessonId;
     }
+
+    public int getGroupId() {
+        return this.groupId;
+    }
+
+    public int getSubjectId() {
+        return this.subjectId;
+    }
+
+    public int getInstructorId() {
+        return this.instructorId;
+    }
+
+    public int getTimeslotId() {
+        return this.timeslotId;
+    }
+
+    public int getLocationId(){
+        return this.locationId;
+    }
+
 }
 
 

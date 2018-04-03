@@ -93,7 +93,7 @@ public class Timetable {
     }
 
     public HashMap<Integer, Location> getLocations() {
-        return locations;
+        return this.locations;
     }
 
     public Location getRandomLocation() {
@@ -103,23 +103,84 @@ public class Timetable {
     }
 
     public CourseInstructor getInstructor(int instructorId) {
-        
+        return (CourseInstructor) this.instructors.get(instructorId);
     }
 
-    public int getNumLessons() {
-        return numLessons;
+    public Subject getSubject(int subjectId) {
+        return (Subject) this.subjects.get(subjectId);
+    }
+
+    public int[] getGroupSubjects(int groupId) {
+        Group group = (Group) this.groups.get(groupId);
+        return group.getSubjectIds();
+    }
+
+    public Group getGroup(int groupId) {
+        return (Group) this.groups.get(groupId);
     }
 
     public Group[] getGroupsAsArray() {
+        return (Group[]) this.groups.values().toArray(new Group[this.groups.size()]);
+    }
 
+    public Timeslot getTimeslot(int timeslotId) {
+        return (Timeslot) this.timeslots.get(timeslotId);
     }
 
     public Timeslot getRandomTimeslot() {
-
+        Object[] timeslotsArray = this.timeslots.values().toArray();
+        Timeslot timeslot = (Timeslot) timeslotsArray[(int) (timeslotsArray.length * Math.random())];
+        return timeslot;
     }
 
+    public Lesson[] getLessons() {
+        return this.lessons;
+    }
 
+    public int getNumLessons() {
+        if (this.numLessons > 0) {
+            return this.numLessons;
+        }
 
-    public Subject getSubject(int subjectId) {
+        int numLessons = 0;
+        Group groups[] = (Group[]) this.groups.values().toArray(new Group[this.groups.size()]);
+        for (Group group : groups) {
+            numLessons += group.getSubjectIds().length;
+        }
+        this.numLessons = numLessons;
+
+        return this.numLessons;
+    }
+
+    public int calculateClashes() {
+        int clashes = 0;
+
+        for (Lesson lesson1 : this.lessons) {
+
+            // check location capacity
+            int groupSize = this.getGroup(lesson1.getGroupId()).getGroupSize();
+            int locationCapacity = this.getLocation(lesson1.getLocationId()).getLocationCapacity();
+
+            if (groupSize > locationCapacity) {
+                clashes++;
+            }
+
+            // check location availability
+            for (Lesson lesson2 : this.lessons) {
+                if (lesson1.getSubjectId() != lesson2.getSubjectId() && lesson1.getLocationId() == lesson2.getLocationId() && lesson1.getTimeslotId() == lesson2.getTimeslotId()) {
+                    clashes++;
+                    break;
+                }
+            }
+
+            // check instructor availability
+            for (Lesson lesson2 : this.lessons) {
+                if (lesson1.getSubjectId() != lesson2.getSubjectId() && lesson1.getInstructorId() == lesson2.getInstructorId() && lesson1.getTimeslotId() == lesson2.getTimeslotId()) {
+                    clashes++;
+                    break;
+                }
+            }
+        }
+        return clashes;
     }
 }
