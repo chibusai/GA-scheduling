@@ -52,10 +52,6 @@ public class Subject {
         return pillar;
     }
 
-//    public String[] getInstructors() {
-//        return instructors;
-//    }
-
     public int getRandomInstructorId() {
         int instructorId = instructorIds[(int) (instructorIds.length * Math.random())];
         return instructorId;

@@ -6,16 +6,18 @@ public class Timetable {
     private final HashMap<Integer, Subject> subjects;
     private final HashMap<Integer, Group> groups;
     private final HashMap<Integer, Timeslot> timeslots;
+    private final HashMap<Integer, Student> students;
     private Lesson lessons[];
 
     private int numLessons = 0;
 
-    public Timetable(HashMap<Integer, Location> locations, HashMap<Integer, CourseInstructor> instructors, HashMap<Integer, Subject> subjects, HashMap<Integer, Group> groups, HashMap<Integer, Timeslot> timeslots, Lesson[] lessons, int numLessons) {
+    public Timetable(HashMap<Integer, Location> locations, HashMap<Integer, CourseInstructor> instructors, HashMap<Integer, Subject> subjects, HashMap<Integer, Group> groups, HashMap<Integer, Timeslot> timeslots, HashMap<Integer, Student> students, Lesson[] lessons, int numLessons) {
         this.locations = locations;
         this.instructors = instructors;
         this.subjects = subjects;
         this.groups = groups;
         this.timeslots = timeslots;
+        this.students = students;
         this.lessons = lessons;
         this.numLessons = numLessons;
     }
@@ -36,6 +38,10 @@ public class Timetable {
         return timeslots;
     }
 
+    public HashMap<Integer, Student> getStudents() {
+        return this.students;
+    }
+
     public void addLocation(int locationId, String locationName, int capacity, LocationType type) {
         this.locations.put(locationId, new Location(locationId, locationName, capacity, type));
     }
@@ -44,7 +50,7 @@ public class Timetable {
         this.instructors.put(instructorId, new CourseInstructor(instructorId, fullName, subjectsTaught));
     }
 
-    public void addGroup(int groupId, String groupName, int groupSize, int subjectIds[]) {
+    public void addGroup(int groupId, String groupName, int groupSize, int subjectIds[], int[] studentIds) {
         this.groups.put(groupId, new Group(groupId, groupName, groupSize, subjectIds, studentIds));
         this.numLessons = 0;
     }
@@ -183,4 +189,6 @@ public class Timetable {
         }
         return clashes;
     }
+
+
 }
