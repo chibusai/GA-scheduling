@@ -49,11 +49,59 @@ public class Algorithm {
 
         population.shuffleIndividuals();
 
-        for (int individualIndex = 0; individualIndex < this.tournamentSize; individualIndex++) {
-            Individual tournamentIndividual = population.getIndividual(individualIndex);
-            tournament.setIndividual(individualIndex,tournamentIndividual);
+        for (int tournamentIndex = 0; tournamentIndex < this.tournamentSize; tournamentIndex++) {
+            Individual tournamentIndividual = population.getIndividual(tournamentIndex);
+            tournament.setIndividual(tournamentIndex,tournamentIndividual);
         }
 
         return tournament.getFittest(0);
+    }
+
+    public Population mutatePopulation(Population population, Timetable timetable) {
+        Population newPopulation =  new Population(this.populationSize);
+
+        for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
+            Individual individual = population.getFittest(populationIndex);
+
+            Individual randomIndividual = new Individual(timetable);
+
+            for (int geneIndex = 0; geneIndex < individual.getChromosomeLength(); geneIndex++) {
+                if (populationIndex > this.elitismCount) {
+                    if (this.mutationRate > Math.random()) {
+                        individual.setGene(geneIndex, randomIndividual.getGene(geneIndex));
+                    }
+                }
+            }
+
+            newPopulation.setIndividual(populationIndex,individual);
+        }
+        return newPopulation;
+    }
+
+    public Population crossoverPopulation(Population population) {
+        Population newPopulation = new Population(population.size());
+
+        for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
+            Individual parent1 = population.getFittest(populationIndex);
+
+            if (populationIndex >= this.elitismCount && this.crossoverRate > Math.random()) {
+                Individual child = new Individual(parent1.getChromosomeLength());
+
+                Individual parent2 = selectParent(population);
+
+                for (int geneIndex = 0; geneIndex < parent1.getChromosomeLength(); geneIndex++) {
+                    if (Math.random() < 0.5) {
+                        child.setGene(geneIndex, parent1.getGene(geneIndex));
+                    } else {
+                        child.setGene(geneIndex, parent2.getGene(geneIndex));
+                    }
+                }
+                newPopulation.setIndividual(populationIndex,child);
+            }
+            else {
+                newPopulation.setIndividual(populationIndex,parent1);
+            }
+        }
+        return newPopulation;
     }
 }
