@@ -45,7 +45,7 @@ public class Timetable {
     }
 
     public void addGroup(int groupId, String groupName, int groupSize, int subjectIds[]) {
-        this.groups.put(groupId, new Group(groupId, groupName, groupSize, subjectIds));
+        this.groups.put(groupId, new Group(groupId, groupName, groupSize, subjectIds, studentIds));
         this.numLessons = 0;
     }
 

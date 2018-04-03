@@ -12,12 +12,14 @@ public class Group {
     private final String groupName; // ISTD_C01, F04
     private final int groupSize;
     private final int subjectIds[];
+    private int[] studentIds;
 
-    public Group(int groupId, String groupName, int groupSize, int subjectId[]) {
+    public Group(int groupId, String groupName, int groupSize, int[] subjectId, int[] studentIds) {
         this.groupId = groupId;
         this.groupName = groupName;
         this.groupSize = groupSize;
         this.subjectIds = subjectId;
+        this.studentIds = studentIds;
     }
 
     public String getGroupName() {

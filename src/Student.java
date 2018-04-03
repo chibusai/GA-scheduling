@@ -5,39 +5,45 @@ public class Student{
     private final Year year;
     private final int cohortClass;
     private final String subjectsTaken[];
+    private final int groupId;
 
 
-    public Student(String fullName, int studentId, Pillar pillar, Year year, int cohortClass, String[] subjectsTaken) {
+    public Student(String fullName, int studentId, Pillar pillar, Year year, int cohortClass, String[] subjectsTaken, int groupId) {
         this.fullName = fullName;
         this.studentId = studentId;
         this.pillar = pillar;
         this.year = year;
         this.cohortClass = cohortClass;
         this.subjectsTaken = subjectsTaken;
+        this.groupId = groupId;
     }
 
     public String getFullName() {
-        return fullName;
+        return this.fullName;
     }
 
 
     public String[] getSubjectsTaken() {
-        return subjectsTaken;
+        return this.subjectsTaken;
     }
 
     public int getCohortClass() {
-        return cohortClass;
+        return this.cohortClass;
     }
 
     public Year getYear() {
-        return year;
+        return this.year;
     }
 
     public Pillar getPillar() {
-        return pillar;
+        return this.pillar;
     }
 
     public int getStudentId() {
-        return studentId;
+        return this.studentId;
+    }
+
+    public int getGroupId() {
+        return this.groupId;
     }
 }
