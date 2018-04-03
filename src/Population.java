@@ -70,7 +70,7 @@ public class Population {
         return population[offset];
     }
 
-    public void shuffle() {
+    public void shuffleIndividuals() {
         for (int i = population.length-1; i > 0; i--) {
             int individualIndex = new Random().nextInt(i+1);
             Individual individual = population[individualIndex];
