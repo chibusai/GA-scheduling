@@ -22,6 +22,17 @@ public class Timetable {
         this.numLessons = numLessons;
     }
 
+    public Timetable(Timetable cloneTimetable) {
+        this.locations = cloneTimetable.getLocations();
+        this.instructors = cloneTimetable.getInstructors();
+        this.subjects = cloneTimetable.getSubjects();
+        this.groups = cloneTimetable.getGroups();
+        this.timeslots = cloneTimetable.getTimeslots();
+        this.students = cloneTimetable.getStudents();
+        this.lessons = cloneTimetable.getLessons();
+        this.numLessons = cloneTimetable.getNumLessons();
+    }
+
     public HashMap<Integer, CourseInstructor> getInstructors() {
         return instructors;
     }
