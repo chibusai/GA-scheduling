@@ -1,6 +1,7 @@
 import javax.naming.InitialContext;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
 public class Population {
     private Individual population[];
@@ -47,5 +48,34 @@ public class Population {
             }
         });
         return this.population[offset];
+    }
+
+    public void setPopulationFitness(double fitness) {
+        this.populationFitness = fitness;
+    }
+
+    public double getPopulationFitness() {
+        return this.populationFitness;
+    }
+
+    public int size() {
+        return this.population.length;
+    }
+
+    public Individual setIndividual(int offset, Individual individual) {
+        return population[offset] = individual;
+    }
+
+    public Individual getIndividual(int offset) {
+        return population[offset];
+    }
+
+    public void shuffle() {
+        for (int i = population.length-1; i > 0; i--) {
+            int individualIndex = new Random().nextInt(i+1);
+            Individual individual = population[individualIndex];
+            population[individualIndex] = population[i];
+            population[i] = individual;
+        }
     }
 }
