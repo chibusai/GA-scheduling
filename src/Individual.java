@@ -3,7 +3,7 @@ public class Individual {
     private int[] chromosome;
     private double fitness = -1;
 
-    private Individual(Timetable timetable) {
+    public Individual(Timetable timetable) {
         int numLessons = timetable.getNumLessons();
 
         // 1 gene for location, 1 for time slot, 1 for instructor
