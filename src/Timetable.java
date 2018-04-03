@@ -11,15 +11,13 @@ public class Timetable {
 
     private int numLessons = 0;
 
-    public Timetable(HashMap<Integer, Location> locations, HashMap<Integer, CourseInstructor> instructors, HashMap<Integer, Subject> subjects, HashMap<Integer, Group> groups, HashMap<Integer, Timeslot> timeslots, HashMap<Integer, Student> students, Lesson[] lessons, int numLessons) {
-        this.locations = locations;
-        this.instructors = instructors;
-        this.subjects = subjects;
-        this.groups = groups;
-        this.timeslots = timeslots;
-        this.students = students;
-        this.lessons = lessons;
-        this.numLessons = numLessons;
+    public Timetable() {
+        this.locations = new HashMap<Integer, Location>();
+        this.instructors = new HashMap<Integer, CourseInstructor>();
+        this.subjects = new HashMap<Integer, Subject>();
+        this.groups = new HashMap<Integer, Group>();
+        this.timeslots = new HashMap<Integer, Timeslot>();
+        this.students = new HashMap<Integer, Student>();
     }
 
     public Timetable(Timetable cloneTimetable) {
@@ -57,8 +55,12 @@ public class Timetable {
         this.locations.put(locationId, new Location(locationId, locationName, capacity, type));
     }
 
-    public void addInstructor(int instructorId, String fullName,  String subjectsTaught[]) {
+    public void addInstructor(int instructorId, String fullName,  int subjectsTaught[]) {
         this.instructors.put(instructorId, new CourseInstructor(instructorId, fullName, subjectsTaught));
+    }
+
+    public void addSubject(int subjectId, String subjectName, int totalHours, Pillar pillar, int[] instructorIds){
+        this.subjects.put(subjectId, new Subject(subjectId, subjectName, totalHours, pillar, instructorIds));
     }
 
     public void addGroup(int groupId, String groupName, int groupSize, int subjectIds[], int[] studentIds) {

@@ -1,9 +1,9 @@
 public class CourseInstructor{
     private final String fullName;
     private final int instructorId;
-    private final String subjectsTaught[];
+    private final int subjectsTaught[];
 
-    public CourseInstructor(int fullName, String instructorId, String[] subjectsTaught) {
+    public CourseInstructor(int instructorId, String fullName, int[] subjectsTaught) {
         this.fullName = fullName;
         this.instructorId = instructorId;
 
@@ -19,7 +19,7 @@ public class CourseInstructor{
         return instructorId;
     }
 
-    public String[] getSubjectsTaught() {
+    public int[] getSubjectsTaught() {
         return subjectsTaught;
     }
 }
