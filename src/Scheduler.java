@@ -10,6 +10,9 @@ public class Scheduler {
     private static Timetable uploadTermInfo() {
         Timetable timetable = new Timetable();
 
+        /*
+
+         */
         /* *
          * Set up locations
          * locationId = int form of location code
