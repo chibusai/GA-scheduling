@@ -190,41 +190,82 @@ public class Timetable {
         return location;
     }
 
+    /**
+     * Get course instructor from instructorId
+     * @param instructorId
+     * @return instructor
+     */
     public CourseInstructor getInstructor(int instructorId) {
         return (CourseInstructor) this.instructors.get(instructorId);
     }
 
+    /**
+     * Get subject from subjectId
+     * @param subjectId
+     * @return subject
+     */
     public Subject getSubject(int subjectId) {
         return (Subject) this.subjects.get(subjectId);
     }
 
+    /**
+     * Get subjectIds of a certain student group (e.g. ISTD Junior Cohort 1)
+     * @param groupId
+     * @return subjectId array
+     */
     public int[] getGroupSubjects(int groupId) {
         Group group = (Group) this.groups.get(groupId);
         return group.getSubjectIds();
     }
 
+    /**
+     * Get student group from groupId
+     * @param groupId
+     * @return group
+     */
     public Group getGroup(int groupId) {
         return (Group) this.groups.get(groupId);
     }
 
+    /**
+     * Get array of all student groups
+     * @return array of groups
+     */
     public Group[] getGroupsAsArray() {
         return (Group[]) this.groups.values().toArray(new Group[this.groups.size()]);
     }
 
+    /**
+     * Get time slot by timeslotId
+     * @param timeslotId
+     * @return time slot
+     */
     public Timeslot getTimeslot(int timeslotId) {
         return (Timeslot) this.timeslots.get(timeslotId);
     }
 
+    /**
+     * Get a random time slot
+     * @return time slot
+     */
     public Timeslot getRandomTimeslot() {
         Object[] timeslotsArray = this.timeslots.values().toArray();
         Timeslot timeslot = (Timeslot) timeslotsArray[(int) (timeslotsArray.length * Math.random())];
         return timeslot;
     }
 
+    /**
+     * Get array of all lessons
+     * @return array of lessons
+     */
     public Lesson[] getLessons() {
         return this.lessons;
     }
 
+    /**
+     * Get number of lessons to be scheduled in a week
+     * @return number of lessons
+     */
     public int getNumLessons() {
         if (this.numLessons > 0) {
             return this.numLessons;
@@ -240,6 +281,14 @@ public class Timetable {
         return this.numLessons;
     }
 
+    /**
+     * createLessons has to be run first to populate this.lessons.
+     *
+     * calculateClashes method will evaluate and return the number of conflicts between the lessons
+     * and the return value will be used by Algorithm.calculateFitness.
+     *
+     * @return number of clashes
+     */
     public int calculateClashes() {
         int clashes = 0;
 
@@ -248,7 +297,6 @@ public class Timetable {
             // check location capacity
             int groupSize = this.getGroup(lesson1.getGroupId()).getGroupSize();
             int locationCapacity = this.getLocation(lesson1.getLocationId()).getLocationCapacity();
-
             if (groupSize > locationCapacity) {
                 clashes++;
             }
@@ -271,6 +319,4 @@ public class Timetable {
         }
         return clashes;
     }
-
-
 }
