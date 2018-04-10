@@ -26,7 +26,7 @@ public class Timetable {
     private int numLessons = 0;
 
     /**
-     * Initialize a timetable
+     * Initialize a timetable (empty)
      */
     public Timetable() {
         this.locations = new HashMap<Integer, Location>();
@@ -36,7 +36,6 @@ public class Timetable {
         this.timeslots = new HashMap<Integer, Timeslot>();
         this.students = new HashMap<Integer, Student>();
     }
-
 
     public Timetable(Timetable cloneTimetable) {
         this.locations = cloneTimetable.getLocations();
@@ -124,10 +123,19 @@ public class Timetable {
         this.timeslots.put(timeslotId, new Timeslot(timeslotId,timeslotName));
     }
 
+    /**
+     * From an Individual, take its chromosome, unpack it into an array of Lesson objects.
+     * The Lesson objects will later be evaluated by calculateClashes for conflicting locations,
+     * time slots, instructors etc.
+     *
+     * @param individual
+     */
     public void createLessons(Individual individual) {
 
+        // Array of lessons that will be derived from Individual's chromosome
         Lesson lessons[] = new Lesson[this.getNumLessons()];
 
+        // Unpack an Individual's chromosome
         int chromosome[] = individual.getChromosome();
         int chromosomeLocus = 0;
         int lessonIndex = 0;
@@ -137,15 +145,15 @@ public class Timetable {
             for (int subjectId : subjectIds) {
                 lessons[lessonIndex] = new Lesson(lessonIndex, group.getGroupId(), subjectId);
 
-                // add time slot
+                // add time slot from first locus of chromosome
                 lessons[lessonIndex].addTimeslot(chromosome[chromosomeLocus]);
                 chromosomeLocus++;
 
-                // add location
+                // add location from second locus of chromosome
                 lessons[lessonIndex].setLocationId(chromosome[chromosomeLocus]);
                 chromosomeLocus++;
 
-                // add instructor
+                // add instructor from third locus of chromosome
                 lessons[lessonIndex].addInstructor(chromosome[chromosomeLocus]);
                 chromosomeLocus++;
 
@@ -156,6 +164,11 @@ public class Timetable {
         this.lessons = lessons;
     }
 
+    /**
+     * Get location from locationId
+     * @param locationId
+     * @return location
+     */
     public Location getLocation(int locationId) {
         if (!this.locations.containsKey(locationId)) {
             System.out.println(locationId + " is not within premise.");
@@ -167,6 +180,10 @@ public class Timetable {
         return this.locations;
     }
 
+    /**
+     * Get a random location
+     * @return location
+     */
     public Location getRandomLocation() {
         Object[] locationsArray = this.locations.values().toArray();
         Location location = (Location) locationsArray[(int) (locationsArray.length * Math.random())];
