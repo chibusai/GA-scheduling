@@ -1,8 +1,15 @@
 public class Individual {
 
+    /**
+     * chromosome is an array of integers
+     */
     private int[] chromosome;
     private double fitness = -1;
 
+    /**
+     * 
+     * @param timetable
+     */
     public Individual(Timetable timetable) {
         int numLessons = timetable.getNumLessons();
 

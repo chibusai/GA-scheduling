@@ -7,10 +7,19 @@ public class Population {
     private Individual population[];
     private double populationFitness = -1;
 
+    /**
+     * Initiliaze population of individuals (empty)
+     * @param populationSize
+     */
     public Population(int populationSize) {
         this.population = new Individual[populationSize];
     }
 
+    /**
+     * Populate the population with individuals
+     * @param populationSize
+     * @param timetable
+     */
     public Population(int populationSize, Timetable timetable) {
         this.population = new Individual[populationSize];
 

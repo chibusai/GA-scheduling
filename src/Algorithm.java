@@ -17,7 +17,7 @@ public class Algorithm {
     /**
      * Initialize population
      * @param timetable
-     * @return the initiated population
+     * @return the newly generated population
      */
     public Population population(Timetable timetable) {
         Population population = new Population(this.populationSize, timetable);
