@@ -6,6 +6,7 @@ public class Algorithm {
     protected int tournamentSize;
 
 
+
     public Algorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount) {
         this.populationSize = populationSize;
         this.mutationRate = mutationRate;
@@ -13,6 +14,11 @@ public class Algorithm {
         this.elitismCount = elitismCount;
     }
 
+    /**
+     * Initialize population
+     * @param timetable
+     * @return the initiated population
+     */
     public Population population(Timetable timetable) {
         Population population = new Population(this.populationSize, timetable);
         return population;

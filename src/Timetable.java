@@ -1,5 +1,19 @@
 import java.util.HashMap;
 
+/**
+ * A timetable is a base case or potential solution to the scheduling problem.
+ * Timetable class reads a chromosome (info, preferences), develops a base case from it,
+ * and evaluates the generated base case for fitness and number of clashes.
+ *
+ * Key methods: createLessons and calculateClashes
+ *
+ * createLessons takes in an Individual, reads its chromosome and creates Lesson objects
+ * from the genetic information. The Lesson objects contain information about the lessons
+ * with getters and are easier to work with than the chromosome directly.
+ *
+ * calculateClashes is used by Algorithm.calculateFitness and requires createLessons to be
+ * run first, then calculates how many hard constraints have been violated.
+ */
 public class Timetable {
     private final HashMap<Integer, Location> locations;
     private final HashMap<Integer, CourseInstructor> instructors;
@@ -11,6 +25,9 @@ public class Timetable {
 
     private int numLessons = 0;
 
+    /**
+     * Initialize a timetable
+     */
     public Timetable() {
         this.locations = new HashMap<Integer, Location>();
         this.instructors = new HashMap<Integer, CourseInstructor>();
@@ -19,6 +36,7 @@ public class Timetable {
         this.timeslots = new HashMap<Integer, Timeslot>();
         this.students = new HashMap<Integer, Student>();
     }
+
 
     public Timetable(Timetable cloneTimetable) {
         this.locations = cloneTimetable.getLocations();
@@ -51,23 +69,57 @@ public class Timetable {
         return this.students;
     }
 
+    /**
+     * Add new location
+     * @param locationId
+     * @param locationName
+     * @param capacity
+     * @param type
+     */
     public void addLocation(int locationId, String locationName, int capacity, LocationType type) {
         this.locations.put(locationId, new Location(locationId, locationName, capacity, type));
     }
 
+    /**
+     * Add new course instructor
+     * @param instructorId
+     * @param fullName
+     * @param subjectsTaught
+     */
     public void addInstructor(int instructorId, String fullName,  int subjectsTaught[]) {
         this.instructors.put(instructorId, new CourseInstructor(instructorId, fullName, subjectsTaught));
     }
 
+    /**
+     * Add new subject
+     * @param subjectId
+     * @param subjectName
+     * @param totalHours
+     * @param pillar
+     * @param instructorIds
+     */
     public void addSubject(int subjectId, String subjectName, int totalHours, Pillar pillar, int[] instructorIds){
         this.subjects.put(subjectId, new Subject(subjectId, subjectName, totalHours, pillar, instructorIds));
     }
 
+    /**
+     * Add new group of students
+     * @param groupId
+     * @param groupName
+     * @param groupSize
+     * @param subjectIds
+     * @param studentIds
+     */
     public void addGroup(int groupId, String groupName, int groupSize, int subjectIds[], int[] studentIds) {
         this.groups.put(groupId, new Group(groupId, groupName, groupSize, subjectIds, studentIds));
         this.numLessons = 0;
     }
 
+    /**
+     * Add new time slots for lessons
+     * @param timeslotId
+     * @param timeslotName
+     */
     public void addTimeslot(int timeslotId, String timeslotName) {
         this.timeslots.put(timeslotId, new Timeslot(timeslotId,timeslotName));
     }
