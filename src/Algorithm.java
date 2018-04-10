@@ -1,3 +1,14 @@
+/**
+ * Description of GA
+ * Population of possible solutions to the given problem
+ * The solutions undergo recombination and mutation, producing new children
+ * The process is repeated over various generations
+ * Each individual (or candidate solution) is assigned a fitness value based on objective function value
+ * Fitter individuals are given a higher chance to mate and yield more "fitter" individuals
+ * We keep "evolving" better individuals or solutions over generations until we reach a terminating criterion.
+ * GA is randomized but performs better than random local search as they exploit historical information as well.
+ */
+
 public class Algorithm {
     private int populationSize;
     private double mutationRate;

@@ -3,6 +3,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
+/**
+ * A population is a pool of potential solutions (individuals)
+ */
 public class Population {
     private Individual population[];
     private double populationFitness = -1;

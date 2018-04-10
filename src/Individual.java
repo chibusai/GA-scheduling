@@ -1,3 +1,7 @@
+/**
+ * An individual is a candidate solution - a potentially optimized timetable
+ */
+
 public class Individual {
 
     /**
@@ -7,7 +11,13 @@ public class Individual {
     private double fitness = -1;
 
     /**
-     * 
+     * Initialize a random indidual based on a timetable
+     *
+     * Timetable holds fixed information (all subjects, instructors, locations available),
+     * excluding information about how to unpack chromosomes to obtain term specific information.
+     *
+     * Create a chromosome that randomly assigns locations, time slots and instructors to the
+     * chromosome for each student group and subject.
      * @param timetable
      */
     public Individual(Timetable timetable) {
@@ -20,9 +30,10 @@ public class Individual {
         int newChromosome[] = new int[chromosomeLength];
         int chromosomeIndex = 0;
 
-        // loop through different groups
+        // loop through all student groups
         for (Group group : timetable.getGroupsAsArray()) {
-            // loop through subjects
+
+            // loop through all subjects
             for (int subjectId : group.getSubjectIds()) {
 
                 // add random time slots
@@ -45,9 +56,15 @@ public class Individual {
         this.chromosome = newChromosome;
     }
 
+    /**
+     * Initialize an individual with a chromosome of a given size
+     * To be used in crossoverPopulation to initialize offspring.
+     * @param chromosomeLength
+     */
     public Individual(int chromosomeLength) {
-        int[] individual;
-        individual = new int[chromosomeLength];
+
+        // create a random individual as integer array with a given chromosome size
+        int[] individual = new int[chromosomeLength];
 
         for (int gene = 0; gene < chromosomeLength; gene++) {
             individual[gene] = gene;
@@ -56,18 +73,35 @@ public class Individual {
         this.chromosome = individual;
     }
 
+    /**
+     * Initialize individual with a specific chromosome
+     * @param chromosome
+     */
     public Individual(int[] chromosome) {
         this.chromosome = chromosome;
     }
 
+    /**
+     * Get individual's chromosome
+     * @return individual's chromosome
+     */
     public int[] getChromosome() {
         return this.chromosome;
     }
 
+    /**
+     * Get individual's chromosome length
+     * @return chromosome length
+     */
     public int getChromosomeLength() {
         return this.chromosome.length;
     }
 
+    /**
+     * Set gene at offset
+     * @param offset
+     * @param gene
+     */
     public void setGene(int offset, int gene) {
         this.chromosome[offset] = gene;
     }
