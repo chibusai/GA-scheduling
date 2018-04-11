@@ -1,5 +1,6 @@
 /**
- * An individual is a candidate solution - a potentially optimized timetable
+ * An individual contains a chromosome which is a candidate solution
+ * aka a potentially optimized timetable
  */
 
 public class Individual {
@@ -11,7 +12,7 @@ public class Individual {
     private double fitness = -1;
 
     /**
-     * Initialize a random indidual based on a timetable
+     * Initialize a random individual based on a timetable
      *
      * Timetable holds fixed information (all subjects, instructors, locations available),
      * excluding information about how to unpack chromosomes to obtain term specific information.
