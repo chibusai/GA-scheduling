@@ -7,7 +7,7 @@
 
 public class Chromosome {
 
-    private int[] chromosome;
+    private int[][] chromosome;
     private double fitness;
 
     public Chromosome(Schedule schedule) {
