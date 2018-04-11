@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="1e54ef09-abcc-4ae2-ae21-a03dfddd812b" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 =======
       <change beforePath="" afterPath="$PROJECT_DIR$/Attempt2/src/Chromosome.java" />
       <change beforePath="" afterPath="$PROJECT_DIR$/Attempt2/src/GeneticAlgorithm.java" />
 >>>>>>> c5bdff19817167ec76627dd763ebd22396b84fe9
+=======
+      <change beforePath="" afterPath="$PROJECT_DIR$/Attempt2/src/Schedule.java" />
+      <change beforePath="$PROJECT_DIR$/Attempt2/src/Chromosome.java" afterPath="$PROJECT_DIR$/Attempt2/src/Chromosome.java" />
+>>>>>>> 25e3f1dbd602d3d10af78287e7db3f713f6ac31a
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +25,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Individual.java" pinned="false" current-in-tab="false">
@@ -170,12 +176,15 @@
     </leaf>
 =======
     <splitter split-orientation="horizontal" split-proportion="0.5">
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.49913794">
+>>>>>>> 25e3f1dbd602d3d10af78287e7db3f713f6ac31a
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Algorithm.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Attempt1/src/Algorithm.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
+                <state relative-caret-position="-1386">
                   <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="3" />
                   <folding />
                 </state>
@@ -185,8 +194,18 @@
           <file leaf-file-name="Chromosome.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Attempt2/src/Chromosome.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="36">
-                  <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+                <state relative-caret-position="252">
+                  <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Attempt2/src/Schedule.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -209,7 +228,7 @@
           <file leaf-file-name="Individual.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Attempt1/src/Individual.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
+                <state relative-caret-position="-166">
                   <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
                   <folding>
                     <element signature="e#2649#2650#0" expanded="true" />
@@ -1108,14 +1127,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Attempt2/src/GeneticAlgorithm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Attempt2/src/Gene.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1126,7 +1137,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Attempt1/src/Individual.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="-166">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding>
             <element signature="e#2649#2650#0" expanded="true" />
@@ -1147,18 +1158,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Attempt2/src/GeneticAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Attempt1/src/Algorithm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-1386">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Attempt2/src/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Attempt2/src/Chromosome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="252">
+          <caret line="14" column="8" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
           <folding />
         </state>
       </provider>
