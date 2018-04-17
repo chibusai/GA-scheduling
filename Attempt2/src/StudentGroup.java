@@ -1,16 +1,51 @@
 public class StudentGroup {
 
     /**
-     * Format: xxx
-     * 1st digit: pillar that student group belongs to
-     * (1 = Freshmore, 2 = ASD, 3 = EPD, 4 = ESD, 5 = ISTD, 6 = HASS)
-     * 2nd digit: term that student group is in
+     * FORMAT: xxx
+     * 1st digit: pillar that student group belongs to (1,2...7)
+     * (1 = FRESHMORE, 2 = ASD, 3 = EPD, 4 = ESD, 5 = ISTD, 6 = HASS, 7 = FRESHMORE_HASS)
+     * 2nd digit: term that student group is in (1,2...8)
      * (1 = term 1, 2 = term 2 etc.)
-     * 3rd digit: group number within batch
+     * 3rd digit: group number within batch (1,2...)
      * (1 = group 1/ cohort 1, 2 = group 2/ cohort 2...)
      *
-     * Assume the following:
-     * Freshmore: F01, F02... F08 =>
-     * ASD:
+     * Examples:
+     * 241: ASD student, term 4, cohort 1
+     * 582: ISTD student, term 8, group 2 (of some subject)
+     * 716: FRESHMORE_HASS student, term 1, group 6
      */
+
+    private final int studentGroupId;
+    private final String studentGroupName; // "ASD Term 4 Cohort 1", "ISTD Term 8 Group 2", "FRESHMORE HASS Term 1 Group 6"
+    private final int studentGroupSize;
+    private final int moduleIds[]; // only for groups having multiple core modules together in terms 1 - 5
+    private final int[] studentIds;
+
+    public StudentGroup(int studentGroupId, String studentGroupName, int studentGroupSize, int[] moduleIds, int[] studentIds) {
+        this.studentGroupId = studentGroupId;
+        this.studentGroupName = studentGroupName;
+        this.studentGroupSize = studentGroupSize;
+        this.moduleIds = moduleIds;
+        this.studentIds = studentIds;
+    }
+
+    public int getStudentGroupId() {
+        return studentGroupId;
+    }
+
+    public String getStudentGroupName() {
+        return studentGroupName;
+    }
+
+    public int getStudentGroupSize() {
+        return studentGroupSize;
+    }
+
+    public int[] getModuleIds() {
+        return moduleIds;
+    }
+
+    public int[] getStudentIds() {
+        return studentIds;
+    }
 }
