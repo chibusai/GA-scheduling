@@ -1,10 +1,12 @@
 public class Session {
-    private final int sessionId;
+    private final int sessionId; // specific to module
+    private final int professorId;
     private final int duration;
     private final VenueType venueType;
 
-    public Session(int sessionId, int duration, VenueType venueType) {
+    public Session(int sessionId, int professorId, int duration, VenueType venueType) {
         this.sessionId = sessionId;
+        this.professorId = professorId;
         this.duration = duration;
         this.venueType = venueType;
     }
@@ -19,5 +21,9 @@ public class Session {
 
     public VenueType getVenueType() {
         return venueType;
+    }
+
+    public int getProfessorId() {
+        return professorId;
     }
 }

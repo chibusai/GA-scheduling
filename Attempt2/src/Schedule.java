@@ -63,6 +63,9 @@ public class Schedule {
         return startTimes;
     }
 
+//    public void addProfessor(int professorId, String professorName, int[] moduleIds) {
+//        this.professors.put(professorId, new Professor(professorId, professorName, moduleIds));
+//    }
 
     public void addVenue(int venueId, String venueName, int capacity, VenueType venueType) {
         this.venues.put(venueId, new Venue(venueId, venueName, capacity, venueType));
@@ -85,17 +88,11 @@ public class Schedule {
         Class classes[] = new Class[this.getNumClasses()];
 
         // Unpack a chromosome
-        int[][] chromosome = individual.getChromosome();
+        int[] chromosome = individual.getChromosome();
         int locus = 0;
         int classIndex = 0;
 
-        Set<Integer> studentGroupId = this.getStudentGroups().keySet();
 
-        // for Freshmore cohorts
-        if ((int i : studentGroupId) > 100 || (int i : studentGroupId) < 700)
-        for (Module module : this.getModulesAsArray()) {
-
-        }
 
 
     }
@@ -106,5 +103,9 @@ public class Schedule {
 
     public StudentGroup[] getStudentGroupsAsArray() {
         return (StudentGroup[]) this.studentGroups.values().toArray(new StudentGroup[this.studentGroups.size()]);
+    }
+
+    public Professor getProfessor(int professorId) {
+        return (Professor) this.professors.get(professorId);
     }
 }
