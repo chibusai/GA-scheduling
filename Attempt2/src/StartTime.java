@@ -1,12 +1,10 @@
 public class StartTime {
-    private final int startTimeId;
-    private final int startTiming;
-    private final int endTiming;
+    private final int startTimeId; // 8AM = 800, 5PM = 1700
+    private final float startTiming; // 8AM = 8.5, 5PM = 17.0
 
-    public StartTime(int startTimeId, int startTiming, int endTiming) {
+    public StartTime(int startTimeId, float startTiming) {
         this.startTimeId = startTimeId;
         this.startTiming = startTiming;
-        this.endTiming = endTiming;
     }
 
     public int getStartTimeId() {
@@ -14,11 +12,7 @@ public class StartTime {
     }
 
 
-    public int getStartTiming() {
+    public float getStartTiming() {
         return startTiming;
-    }
-
-    public int getEndTiming() {
-        return endTiming;
     }
 }
