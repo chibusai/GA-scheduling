@@ -8,15 +8,19 @@
 public class Chromosome {
 
     private int[][] chromosome;
-    private double fitness;
+    private double fitness = -1;
 
-    public Chromosome(Schedule schedule, int[][] chromosome, double fitness) {
+//    public Chromosome(Schedule schedule, int[][] chromosome, double fitness) {
+//        this.chromosome = chromosome;
+//        this.fitness = fitness;
+//    }
 
+    public Chromosome(Schedule schedule) {
+        int numClasses = schedule.getNumClasses();
 
-        this.chromosome = chromosome;
-        this.fitness = fitness;
+        // 1 for class info, 1 for venue, 1 for start time
+        int chromosomeLength = 
     }
-
     public int[][] getChromosome() {
         return chromosome;
     }

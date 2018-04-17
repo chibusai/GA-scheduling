@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Set;
 
 public class Schedule {
     private final HashMap<Integer, Module> modules;
@@ -10,7 +11,9 @@ public class Schedule {
     private final HashMap<Integer, StartTime> startTimes;
 
     private Class[] classes; // schedule in array form
-    private int numClasses = 0;
+
+    // TODO: get more accurate number of classes
+    private int numClasses = 50;
 
     public Schedule(HashMap<Integer, Module> modules, HashMap<Integer, Session> sessions, HashMap<Integer, StudentGroup> studentGroups, HashMap<Integer, Professor> professors, HashMap<Integer, Duration> durations, HashMap<Integer, Venue> venues, HashMap<Integer, StartTime> startTimes) {
         this.modules = modules;
@@ -85,10 +88,23 @@ public class Schedule {
         int[][] chromosome = individual.getChromosome();
         int locus = 0;
         int classIndex = 0;
-        
+
+        Set<Integer> studentGroupId = this.getStudentGroups().keySet();
+
+        // for Freshmore cohorts
+        if ((int i : studentGroupId) > 100 || (int i : studentGroupId) < 700)
+        for (Module module : this.getModulesAsArray()) {
+
+        }
 
 
     }
 
+    public Module[] getModulesAsArray() {
+        return (Module[]) this.modules.values().toArray(new Module[this.modules.size()]);
+    }
 
+    public StudentGroup[] getStudentGroupsAsArray() {
+        return (StudentGroup[]) this.studentGroups.values().toArray(new StudentGroup[this.studentGroups.size()]);
+    }
 }
