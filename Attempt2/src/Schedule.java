@@ -26,5 +26,13 @@ public class Schedule {
         this.venues.put(venueId, new Venue(venueId, venueName, capacity, venueType));
     }
 
-    public void addStartTime()
+    public void addStartTime(int startTimeId, float startTiming) {
+        this.startTimes.put(startTimeId, new StartTime(startTimeId, startTiming));
+    }
+
+    public void createLessons(Chromosome chromosome) {
+
+        // Array of lessons derived from individuals's chromosome
+
+    }
 }

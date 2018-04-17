@@ -11,7 +11,6 @@ public class StartTime {
         return startTimeId;
     }
 
-
     public float getStartTiming() {
         return startTiming;
     }
