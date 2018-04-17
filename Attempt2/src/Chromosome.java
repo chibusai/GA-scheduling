@@ -12,6 +12,7 @@ public class Chromosome {
 
     public Chromosome(Schedule schedule) {
 
+
         
     }
 }
