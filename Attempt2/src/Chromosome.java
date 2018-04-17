@@ -10,9 +10,26 @@ public class Chromosome {
     private int[][] chromosome;
     private double fitness;
 
-    public Chromosome(Schedule schedule) {
+    public Chromosome(Schedule schedule, int[][] chromosome, double fitness) {
 
 
-        
+        this.chromosome = chromosome;
+        this.fitness = fitness;
+    }
+
+    public int[][] getChromosome() {
+        return chromosome;
+    }
+
+    public void setChromosome(int[][] chromosome) {
+        this.chromosome = chromosome;
+    }
+
+    public double getFitness() {
+        return fitness;
+    }
+
+    public void setFitness(double fitness) {
+        this.fitness = fitness;
     }
 }
