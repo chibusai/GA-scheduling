@@ -5,7 +5,7 @@ public class StartTime {
     private float duration; // to be read from class[4]
     private float endTiming; // to be calculated based on duration given
 
-    public StartTime(int startTimeId, float startTiming, float duration, float endTiming) {
+    public StartTime(int startTimeId, float startTiming) {
         this.startTimeId = startTimeId;
         this.startTiming = startTiming;
         this.duration = duration;
@@ -25,7 +25,7 @@ public class StartTime {
     }
 
     public void setDuration(float duration) {
-        this.duration = ;
+        this.duration = duration;
     }
 
     public float getEndTiming() {
@@ -35,6 +35,4 @@ public class StartTime {
     public void setEndTiming(float endTiming) {
         this.endTiming = startTiming + duration;
     }
-
-
 }
