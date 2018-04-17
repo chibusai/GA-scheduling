@@ -48,7 +48,7 @@ public class Chromosome {
 
             for (StudentGroup studentGroup : schedule.getStudentGroupsAsArray()) {
 
-                
+
             }
 
 
@@ -56,6 +56,19 @@ public class Chromosome {
             chromosomeIndex += 7;
         }
     }
+
+    public Chromosome(int chromosomeLength) {
+
+        // create a random chromosome
+        int[] chromosome = new int[chromosomeLength];
+
+        for (int gene = 0; gene < chromosomeLength; gene++) {
+            chromosome[gene] = gene;
+        }
+
+        this.chromosome = chromosome;
+    }
+    
     public int[] getChromosome() {
         return chromosome;
     }
