@@ -31,20 +31,27 @@ public class Chromosome {
         // loop through all modules
         for (Module module : schedule.getModulesAsArray()) {
 
-            // add fixed module
+            // add fixed module at newChromosome[0n]
             newChromosome[chromosomeIndex] = module.getModuleId();
 
             // loop through all sessions of a module
             for (int sessionId : module.getSessionIds()) {
-                // add fixed session
+                // add fixed session at newChromosome[1n]
                 newChromosome[chromosomeIndex + 1] = sessionId;
             }
 
-            // loo[ through all professors teaching a modul
-            for (int professorId : module.getProfessorIds()) {
-                // add fixed professor
-                newChromosome[chromosomeIndex+2] =
+            // loop through all student groups enrolled in a module
+            for (int studentGroupId : module.getStudentGroupIds()){
+                // add fixed student group at newChromosome[2n]
+                newChromosome[chromosomeIndex + 2] = studentGroupId;
             }
+
+            for (StudentGroup studentGroup : schedule.getStudentGroupsAsArray()) {
+
+                
+            }
+
+
 
             chromosomeIndex += 7;
         }

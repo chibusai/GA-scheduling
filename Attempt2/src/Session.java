@@ -1,5 +1,5 @@
 public class Session {
-    private final int sessionId; // specific to module
+    private final int sessionId;
     private final int professorId;
     private final int duration;
     private final VenueType venueType;
