@@ -27,7 +27,7 @@ public class Schedule {
     }
 
     public void addStartTime(int startTimeId, float startTiming) {
-        this.startTimes.put(startTimeId, new StartTime(startTimeId, startTiming));
+        this.startTimes.put(startTimeId, new StartTime(startTimeId, startTiming, duration, endTiming));
     }
 
     public void createLessons(Chromosome chromosome) {

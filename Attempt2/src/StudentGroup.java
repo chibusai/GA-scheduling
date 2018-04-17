@@ -18,7 +18,7 @@ public class StudentGroup {
     private final int studentGroupId;
     private final String studentGroupName; // "ASD Term 4 Cohort 1", "ISTD Term 8 Group 2", "FRESHMORE HASS Term 1 Group 6"
     private final int studentGroupSize;
-    private final int moduleIds[]; // only for groups having multiple core modules together in terms 1 - 5
+    private final int[] moduleIds; // only for groups having multiple core modules together in terms 1 - 5
     private final int[] studentIds;
 
     public StudentGroup(int studentGroupId, String studentGroupName, int studentGroupSize, int[] moduleIds, int[] studentIds) {
