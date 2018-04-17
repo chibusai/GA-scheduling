@@ -45,7 +45,7 @@ public class Class {
     public int getDurationId() {
         return durationId;
     }
-    
+
     public int getVenueId() {
         return venueId;
     }
